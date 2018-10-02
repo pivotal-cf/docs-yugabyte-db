@@ -1,0 +1,44 @@
+---
+title: Installing YugaByte Service Broker for PCF
+owner: Partners
+---
+
+This topic describes how to install YugaByte Service Broker for PCF.
+
+##<a id='install'></a> Install YugaByte Service Broker for PCF
+
+To install the YugaByte Service Broker, do the following:
+
+1. Download YugaByte Service Broker code from [GitHub] (https://github.com/YugaByte/cf-yugabyte-service-broker.git).
+
+1. Update the application properties to include the YugaByte Management console host ip, and the email/password of
+the registered user.
+<br>`vi src/main/resources/application.properties`
+<br><%= image_tag('application-override.png') %>
+
+1. Build the service broker with the new properties, by running below command.
+<br>`./gradlew build`
+
+1. Publish the service broker to your PCF instance, by running below command.
+<br>`cf push`
+
+1. To launch YugaByte service go to your PCF App manager and go to Marketplace and pick YugaByte DB
+<br><%= image_tag('marketplace-search.png') %>
+
+1. It should prompt you to pick a plan, pick the plan of your choice, remember the plan has a corresponding
+CPU and Memory requirements, make sure you have provisioned the cluster to meet this requirements.
+
+1. Fill in the Instance Name and in the Advanced Options, enter universe_name parameter as shown below.
+<br><%= image_tag('create-instance.png') %>
+
+1. Click **CREATE** to launch the YugaByte DB, you should see the confirmation as below.
+<br><%= image_tag('create-instance-success.png') %>
+
+1. Wait for the YugaByte DB service to launch, you can always go to the Management Console and check for status.
+<br><%= image_tag('yugaware-instance-status.png') %>
+
+1. Once the service is up, Click on **CREATE SERVICE KEY** to create a service key for your application to use.
+<br><%= image_tag('create-service-key.png') %>
+
+1. Once the service key is created, you can view the service key cedentials like below.
+<br><%= image_tag('create-service-credentials.png') %>

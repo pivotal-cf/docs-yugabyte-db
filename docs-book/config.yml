@@ -17,10 +17,10 @@ sections:
   - repository:
       name: docs-content
     directory: yugabyte-db
-    subnav_template: yugabyte-db_subnav.erb       
+    subnav_template: yugabyte-db_subnav.erb
 
 template_variables:                             # optional
 
-book_title: Partner Services Template
+book_title: YugaByte DB Enterprise for PKS
 book_repo: docs-book
 layout_repo: docs-layout
