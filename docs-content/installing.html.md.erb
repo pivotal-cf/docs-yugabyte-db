@@ -9,9 +9,9 @@ This topic describes how to install and configure YugaByte Management console on
 
 To install the YugaByte Management Console on PKS, do the following:
 
-1. Obtain Pull Secret for running the YugaByte Management console from [YugaByte Sales](mailto:sales@yugabyte.com)
+1. Obtain a Pull Secret for running the YugaByte Management console from [YugaByte Sales](mailto:sales@yugabyte.com).
 
-1. Run the following command to install the Pull Secret
+1. Run the following command to install the Pull Secret.
  <pre class="terminal">
  $ kubectl create -f yugabyte-k8s-secret.yml
  </pre>
@@ -23,19 +23,19 @@ To install the YugaByte Management Console on PKS, do the following:
  $ kubectl create -f yugaware-k8s.yml
  </pre>
 
-1. Once the service is up, you can access the UI and you would land on a registration page as below.
+1. Once the service is up, you can access the UI. Here you will land on a registration page as below.
 <br><%= image_tag('register.png') %>
 
 1. Fill in the Registration form and hit **Register**, please make a note of the email and password.
 <br><%= image_tag('register-filled.png') %>
 
-1. Once registered successfully you would land on a empty dashboard asking you to Configure a provider as below.
+1. Once registered successfully you will seen an empty dashboard asking you to Configure a provider as below.
 <br><%= image_tag('dashboard.png') %>
 
 1. Click **Configure a Provider** and navigate to Pivotal Container Service Tab.
 <br><%= image_tag('config-page.png') %>
 
-1. Create a new Pivotal Container Service by providing the kube config, service account and namespace details
+1. Create a new Pivotal Container Service by providing the kube config, service account, and namespace details.
 <br><%= image_tag('config-page-filled.png') %>
 
 1. Click **Save** to save the configuration.

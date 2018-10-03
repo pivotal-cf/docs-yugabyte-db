@@ -5,17 +5,17 @@ owner: Partners
 
 This topic describes how developers can use the YugaByte Service Broker for Pivotal Cloud Foundry (PCF).
 
-After installing and configuring the YugaByte DB for PCF tile, developers can create service instances of
+After installing and configuring YugaByte Service Broker for PCF, developers can create service instances of
 YugaByte service plans and bind them to their applications using either Apps Manager or the
-Cloud Foundry Command Line Interface (cf CLI). Binding an YugaByte service instance to an application provides
-the application with information it can use to store and retrieve information in an YugaByte database.
+Cloud Foundry Command Line Interface (cf CLI). Binding a YugaByte service instance to an application provides
+the application with information it can use to store and retrieve information in a YugaByte database.
 
-YugaByte supports Cassandra and Redis complaint API, Refer to [YugaByte documentation] (https://docs.yugabyte.com/latest/develop/client-drivers/)
+YugaByte supports Cassandra and Redis complaint API. Refer to the [YugaByte documentation] (https://docs.yugabyte.com/latest/develop/client-drivers/)
 to learn on how to use YugaByte with your existing application.
 
 ##<a id="apps-man"></a> Create and Bind a Service Instance in Apps Manager
 
-To create an YugaByte service instance and service key using Apps Manager, perform the following steps:
+To create a YugaByte service instance and service key using Apps Manager, perform the following steps:
 
 1. Navigate to `apps.YOUR-SYSTEM-DOMAIN` in a browser and log in to Apps Manager.
 1. Click **Marketplace** in the left navigation.
@@ -26,14 +26,14 @@ To create an YugaByte service instance and service key using Apps Manager, perfo
 <br><%= image_tag('create-instance.png') %>
 1. Click **CREATE** to launch the YugaByte DB, you should see the confirmation as below.
 <br><%= image_tag('create-instance-success.png') %>
-1. Click on the service instance and Click **CREATE SERVICE KEY** and enter a Service Key Name and click **CREATE**
+1. Click on the service instance and click **CREATE SERVICE KEY** and enter a Service Key Name. Then click **CREATE**.
 <br><%= image_tag('create-service-key.png') %>
 1. Once the service key is created, you can view the service key cedentials like below.
 <br><%= image_tag('create-service-credentials.png') %>
 
 ##<a id='cf-cli'></a>Create and Bind a Service Instance Using the cf CLI
 
-To create an YugaByte service instance and service key using the cf CLI, perform the following steps:
+To create a YugaByte service instance and service key using the cf CLI, perform the following steps:
 
 1. Set your API endpoint to the Cloud Controller of your deployment.
     <pre class="terminal">
@@ -73,7 +73,7 @@ To create an YugaByte service instance and service key using the cf CLI, perform
     TIP:  Use 'cf marketplace -s SERVICE' to view descriptions of individual plans of a given service.
     </pre>
 
-1. To view invididual plan descrption, run
+1. To view invididual plan descriptions, run:
     <pre class="terminal">
     $ cf marketplace -s yugabyte-sb
     OK
@@ -90,12 +90,12 @@ To create an YugaByte service instance and service key using the cf CLI, perform
     $ cf create-service yugabyte-sb PLAN SERVICE_INSTANCE -c '{"universe_name": SERVICE_INSTANCE}'
     </pre>
 
-1. Create a service key for the YugaByte service
+1. Create a service key for the YugaByte service:
     <pre class="terminal">
     $ cf create-service-key SERVICE_INSTANCE SERVICE_KEY
     </pre>
 
-1. Get the service key details
+1. Get the service key details:
     <pre class="terminal">
     $ cf service-key SERVICE_INSTANCE SERVICE_KEY
     </pre>
