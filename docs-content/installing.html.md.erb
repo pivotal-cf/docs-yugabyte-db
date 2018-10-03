@@ -1,23 +1,27 @@
 ---
-title: Installing and Configuring YugaByte DB Enterprise for PKS
+title: Installing and Configuring YugaByte Management console on PKS
 owner: Partners
 ---
 
-This topic describes how to install and configure YugaByte DB Enterprise for PKS.
+This topic describes how to install and configure YugaByte Management console on PKS.
 
-##<a id='install'></a> Install and Configure YugaByte DB Enterprise for PKS
+##<a id='install'></a> Install and Configure YugaByte Management console on PKS
 
-To install the YugaByte DB Enterprise for PKS, do the following:
+To install the YugaByte Management Console on PKS, do the following:
 
-1. Obtain Pull Secret for running the YugaByte DB Enterprise edition from [YugaByte Sales](mailto:sales@yugabyte.com)
+1. Obtain Pull Secret for running the YugaByte Management console from [YugaByte Sales](mailto:sales@yugabyte.com)
 
 1. Run the following command to install the Pull Secret
-<br>`kubectl create -f yugabyte-k8s-secret.yml`
+ <pre class="terminal">
+ $ kubectl create -f yugabyte-k8s-secret.yml
+ </pre>
 
 1. Download YugaByte Management console k8s file from [Pivotal Network] (https://network.pivotal.io/products/yugabyte-db/).
 
 1. Run the following command to get YugaByte Management console started on PKS.
-`kubectl create -f yugaware-k8s.yml`
+ <pre class="terminal">
+ $ kubectl create -f yugaware-k8s.yml`
+ </pre>
 
 1. Once the service is up, you can access the UI and you would land on a registration page as below.
 <br><%= image_tag('register.png') %>
