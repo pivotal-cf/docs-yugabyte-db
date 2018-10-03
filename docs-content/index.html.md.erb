@@ -1,115 +1,100 @@
 ---
-title: YOUR-PRODUCT-NAME (Beta)
+title: YugaByte DB Enterprise for PKS
 owner: Partners
 ---
-
-<p class="note warning">
-<strong>WARNING! </strong>
-The PRODUCT-NAME for PCF tile is currently in beta and is intended for evaluation and test purposes only. 
-Do not use this product in a PCF production environment.
-</p>
-
-**This topic begins with a brief description of what the product tile (e.g. Apigee Edge Service Broker for PCF) does, 
-whereas the Overview section below describes what the service itself (e.g. Apigee Edge) does. See below for an example.**
-
-This documentation describes the Apigee Edge Service Broker for Pivotal Cloud Foundry (PCF). The Apigee Edge Service 
-Broker for PCF enables developers to manage APIs for their PCF apps through the Apigee Edge management console.
-
-**Note**: This description will appear under **OVERVIEW** in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io).
+This documentation describes YugaWare (YugaByte DB management console) in Pivotal Container Service (PKS).
+YugaWare helps manage YugaByte Enterprise Edition but integrating orchestration, monitoring and alerts all
+in one application. The documentation also describes YugaByte Service Broker for Pivotal Cloud Foundry (PCF).
+The YugaByte Service Broker registers a service broker on PCF and exposes its service plans on the Marketplace.
+This documentation describes the YugaByte Service Broker for Pivotal Cloud Foundry (PCF). The YugaByte Service Broker
+registers a service broker on PCF and exposes its service plans on the Marketplace.
 
 ## <a id='overview'></a>Overview
 
-**The overview describes the service that your product offers to PCF developers. 
-Make sure to overview the features of the integration.
-Don't focus only on the overview of your product that is being integrated.
-See below for an example.**
+YugaWare is a management console for YugaByte Enterprise Edition DB. It gives a interface to carry out various
+Enterprise functions like Software upgrade, Backups, Alerts, etc. Also users can use the management console to
+monitor their DB performance by viewing metrics. It management console exposes bunch of these functions APIs as well.
 
-The Apigee Edge Service Broker for PCF registers a service broker with PCF and exposes its service plans on the 
-Marketplace. Developers can then create service plan instances using Apps Manager or the Cloud Foundry Command 
-Line Interface (cf CLI) and bind them to their apps.
+The YugaByte Service Broker for PCF registers a service broker with PCF and exposes its service plans on the
+Marketplace. Developers can then create service plan instances using Apps Manager or the Cloud Foundry Command
+Line Interface (cf CLI) and bind them to their apps. The service broker talks to the YugaWare management console via
+the API interface
 
-Creating an Apigee Edge for PCF service instance and binding it to an app creates an Apigee Edge API proxy that 
-handles requests for the app. This lets developers use the Apigee Edge management console to manage API request 
-handling between clients and the app.
-
-**Note**: This overview will appear under **OVERVIEW**, combined with the description above in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io).
 
 ## <a id='features'></a>Key Features
 
-**Note**: This feature list will appear under **FEATURES** in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io). 
-Make sure you list the key features of the tile (the integration). 
-We cannot accept a list of the key features of your product that we are integrating.
+YugaByte DB Enterprise for PKS includes the following key features:
 
-YOUR-PRODUCT-NAME includes the following key features:
-
-* Feature one
-* Feature two
-* Feature three
-
-
+* **High Performance** Over 90% better performance than Cassandra when
+handling over 10 Million keys. The denser the data sets, the better YugaByte DB performs vs other
+databases.
+* **Transactional** Support for distributed ACID transactions across PKS nodes,
+containers and availability zones.
+* **Planet-Scale** Automated scale-out and rebalancing across PKS availability
+zones without downtime or performance bottlenecks.
+* **Development Agility**: Support for Cassandra, Redis and PostgreSQL wire compatible
+APIs to accelerate development.
+* **Cloud Native** Designed from the ground up for the cloud and containers.
+Runs on Pivotal, AWS, Google Cloud, Azure, Docker and private datacenters to support any
+hybrid deployment.
+* **Open Source** Transparent and extensible, Apache 2.0 licensed.
 
 ## <a id="snapshot"></a>Product Snapshot
 
-The following table provides version and version-support information about PRODUCT-NAME.
+The following table provides version and version-support information about YugaByte DB Enterprise for PKS.
 
 <table class="nice">
     <th>Element</th>
     <th>Details</th>
     <tr>
         <td>Tile version</td>
-        <td>vYOUR-VERSION-NUMBER</td>
+        <td>v1.1.0.0</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>YOUR-RELEASE-DATE (Ex: July 1, 2017)</td>
+        <td>Sep 20, 2018</td>
     </tr>
     <tr>
         <td>Software component version</td>
-        <td>vYOUR-SOFTWARE-COMPONENT-VERSION-NUMBER</td>
+        <td>v1.1.0.0</td>
     </tr>
     <tr>
         <td>Compatible Ops Manager version(s)</td>
-        <td>vYOUR-COMPATIBLE-OPS-MAN-VERSION (Ex. v1.11.x, v1.12.x, and v2.0.x)</td>
+        <td>v2.1.x</td>
     </tr>
     <tr>
         <td>Compatible Pivotal Container Service version(s)</td>
-        <td>vYOUR-COMPATIBLE-PIVOTAL-Container-SERVICE-VERSION (Ex. v1.11.x, v1.12.x, and v2.0.X)</td>
+        <td>v1.1.5.x</td>
     </tr>
     <tr>
         <td>IaaS support</td>
-        <td>AWS?, Azure?, GCP?, OpenStack?, and vSphere?</td>
+        <td>AWS, GCP, and vSphere</td>
     </tr>
     <tr>
         <td>IPsec support?</td>
         <td>[Yes or No]</td>
     </tr>
 </table>
- 
+
 
 ## <a id="reqs"></a>Requirements
+**YugaByte DB Enterprise for PKS has the following requirements:**
 
-**Provide any general or specific requirements, prerequisites, or dependencies here. 
-A general requirement might be something like, "An AppDynamics account." 
-A specific requirement might be something like, "Packaging Dependencies for Offline Buildpacks."**
++ Pivotal Container Service (PKS) cluster with atleast a **medium** plan
 
-YOUR-PRODUCT-NAME has the following requirements:
+For more information on how to bring up a cluster in PKS see the [PKS documentation](https://docs.pivotal.io/runtimes/pks/index.html)
 
-+ PREREQUISITE-1
+**YugaByte Service Broker for PCF has the following requirements:**
 
-+ PREREQUISITE-2
++ You must have a YugaWare instance running with a cloud provider setup.
 
-## <a id="limitations"></a>Limitations
+For more information on how to setup a cloud provider see the [YugaByte documentation](https://docs.yugabyte.com/latest/deploy/enterprise-edition/configure-cloud-providers/)
 
-**List any known limitations.**
+## <a id='license'></a>License
+Before deploying YugaByte DB Enterprise for PKS, you must procure a license from YugaByte Inc.
+
 
 ## <a id="feedback"></a>Feedback
 
 If you have a feature request, questions, or information about a bug, please email
-[Pivotal Cloud Foundry Feedback](mailto:cf-feedback@pivotal.io) list or send an email to YOUR-SUPPORT-EMAIL.
-
-## <a id='license'></a>License
-
-**List any license information here.**
+[Pivotal Cloud Foundry Feedback](mailto:cf-feedback@pivotal.io) list or send an email to support@yugabyte.com.

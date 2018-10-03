@@ -1,30 +1,37 @@
 ---
-title: Installing and Configuring YOUR-PRODUCT-NAME
+title: Installing and Configuring YugaByte DB Enterprise for PKS
 owner: Partners
 ---
 
-This topic describes how to install and configure YOUR-PRODUCT-NAME.
+This topic describes how to install and configure YugaByte DB Enterprise for PKS.
 
-##<a id='install'></a> Install and Configure YOUR-PRODUCT-NAME
+##<a id='install'></a> Install and Configure YugaByte DB Enterprise for PKS
 
-To install the YOUR-PRODUCT-NAME file on the Ops Manager Installation Dashboard, do the following:
+To install the YugaByte DB Enterprise for PKS, do the following:
 
-1. Download the product file from Pivotal Network.
+1. Obtain Pull Secret for running the YugaByte DB Enterprise edition from [YugaByte Sales](mailto:sales@yugabyte.com)
 
-1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
+1. Run the following command to install the Pull Secret
+<br>`kubectl create -f yugabyte-k8s-secret.yml`
 
-1. Under the **Import a Product** button, click **+** next to the version number of YOUR-PRODUCT-NAME. 
-This adds the tile to your staging area.
+1. Download YugaByte Management console k8s file from [Pivotal Network] (https://network.pivotal.io/products/yugabyte-db/).
 
-1. Click the newly added **YOUR-PRODUCT-NAME** tile.
+1. Run the following command to get YugaByte Management console started on PKS.
+`kubectl create -f yugaware-k8s.yml`
 
-1. **This portion of the procedure should tell the users how to configure the newly added tile by
-walking them through the sections. Which fields should they fill out? What are the different
-checkboxes? Include relevant screenshots here.** 
+1. Once the service is up, you can access the UI and you would land on a registration page as below.
+<br><%= image_tag('register.png') %>
 
-1. Click **Save**.
+1. Fill in the Registration form and hit **Register**, please make a note of the email and password.
+<br><%= image_tag('register-filled.png') %>
 
-1. Return to the Ops Manager Installation Dashboard and click **Apply changes** to install YOUR-PRODUCT-NAME tile.
+1. Once registered successfully you would land on a empty dashboard asking you to Configure a provider as below.
+<br><%= image_tag('dashboard.png') %>
 
-**If needed, include additional configuration information below. For example, maybe there are
-configuration options not required for installation but which could be useful for certain users.**
+1. Click **Configure a Provider** and navigate to Pivotal Container Service Tab.
+<br><%= image_tag('config-page.png') %>
+
+1. Create a new Pivotal Container Service by providing the kube config, service account and namespace details
+<br><%= image_tag('config-page-filled.png') %>
+
+1. Click **Save** to save the configuration.
