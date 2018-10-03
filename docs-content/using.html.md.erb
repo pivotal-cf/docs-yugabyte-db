@@ -1,11 +1,101 @@
 ---
-title: Using YugaByte DB Enterprise for PKS
+title: Using YugaByte Service Broker for PCF
 owner: Partners
 ---
 
-This topic describes how to use YugaByte DB Enterprise for PKS.
+This topic describes how developers can use the YugaByte Service Broker for Pivotal Cloud Foundry (PCF).
 
-##<a id='using'></a> Using YugaByte DB Enterprise for PKS
+After installing and configuring the YugaByte DB for PCF tile, developers can create service instances of
+YugaByte service plans and bind them to their applications using either Apps Manager or the
+Cloud Foundry Command Line Interface (cf CLI). Binding an YugaByte service instance to an application provides
+the application with information it can use to store and retrieve information in an YugaByte database.
 
-YugaByte support Cassandra and Redis complaint API, Refer to [YugaByte documentation] (https://docs.yugabyte.com/latest/develop/client-drivers/) to learn on how to use
-YugaByte with your existing application.
+YugaByte supports Cassandra and Redis complaint API, Refer to [YugaByte documentation] (https://docs.yugabyte.com/latest/develop/client-drivers/)
+to learn on how to use YugaByte with your existing application.
+
+##<a id="apps-man"></a> Create and Bind a Service Instance in Apps Manager
+
+To create an YugaByte service instance and service key using Apps Manager, perform the following steps:
+
+1. Navigate to `apps.YOUR-SYSTEM-DOMAIN` in a browser and log in to Apps Manager.
+1. Click **Marketplace** in the left navigation.
+1. Click **YugaByte DB** from the displayed tiles and click to view the available plans.
+1. Click on the appropriate **Select this plan** button to select the required **YugaByte Service Plan**.
+1. In the **Instance Name** field, enter a name for this specific YugaByte service instance.
+1. Click **Show Advanced Options**. In the **Add Parameters** section, add a parameter with name of `universe_name` and set the value to match the instance name.
+<br><%= image_tag('create-instance.png') %>
+1. Click **CREATE** to launch the YugaByte DB, you should see the confirmation as below.
+<br><%= image_tag('create-instance-success.png') %>
+1. Click on the service instance and Click **CREATE SERVICE KEY** and enter a Service Key Name and click **CREATE**
+<br><%= image_tag('create-service-key.png') %>
+1. Once the service key is created, you can view the service key cedentials like below.
+<br><%= image_tag('create-service-credentials.png') %>
+
+##<a id='cf-cli'></a>Create and Bind a Service Instance Using the cf CLI
+
+To create an YugaByte service instance and service key using the cf CLI, perform the following steps:
+
+1. Set your API endpoint to the Cloud Controller of your deployment.
+    <pre class="terminal">
+    $ cf api api.YOUR-SYSTEM-DOMAIN --skip-ssl-validation
+    Setting api endpoint to api.YOUR-SYSTEM-DOMAIN...
+    OK
+
+    api endpoint:  <span>https</span>://api.YOUR-SYSTEM-DOMAIN
+    api version:   2.103.0
+
+    Not logged in. Use 'cf login' to log in.
+    </pre>
+
+1. Log in to your deployment and select an org and a space.
+    <pre class="terminal">
+    $ cf login
+    API endpoint: <span>https</span>://api.YOUR-SYSTEM-DOMAIN
+    Email>
+    Password>
+    Authenticating...
+    OK
+
+    Select an org (or press enter to skip):
+    Org>
+
+    </pre>
+
+1. List the Marketplace services and locate the YugaByte service. The service plans match the namespaces that have been configured on the YugaByte database.
+    <pre class="terminal">
+    $ cf marketplace
+    Getting services from marketplace in org system / space apps-manager as admin...
+    OK
+
+    service          plans                                          description
+    yugabyte-sb      large, medium, small, xlarge, xsmall           Service Broker for Managing YugaByte DB
+
+    TIP:  Use 'cf marketplace -s SERVICE' to view descriptions of individual plans of a given service.
+    </pre>
+
+1. To view invididual plan descrption, run
+    <pre class="terminal">
+    $ cf marketplace -s yugabyte-sb
+    OK
+    service plan   description                                    free or paid
+    large          Cores: 16, Memory (GB): 16, Volumes: 1 x 100   free
+    medium         Cores: 8, Memory (GB): 8, Volumes: 1 x 100     free
+    small          Cores: 4, Memory (GB): 4, Volumes: 1 x 100     free
+    xlarge         Cores: 32, Memory (GB): 32, Volumes: 1 x 100   free
+    xsmall         Cores: 2, Memory (GB): 2, Volumes: 1 x 100     free
+    </pre>
+
+1. Create an instance of the YugaByte service, specifying both the name of the service plan and the name of the service instance.
+    <pre class="terminal">
+    $ cf create-service yugabyte-sb PLAN SERVICE_INSTANCE -c '{"universe_name": SERVICE_INSTANCE}'
+    </pre>
+
+1. Create a service key for the YugaByte service
+    <pre class="terminal">
+    $ cf create-service-key SERVICE_INSTANCE SERVICE_KEY
+    </pre>
+
+1. Get the service key details
+    <pre class="terminal">
+    $ cf service-key SERVICE_INSTANCE SERVICE_KEY
+    </pre>
