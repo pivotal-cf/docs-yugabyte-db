@@ -1,6 +1,11 @@
-## Pivotal Cloud Foundry Partners Template
+## YugaByte DB Enterprise for PKS
 
-This template helps partners prepare documentation for Pivotal Cloud Foundry (PCF) partner services that appear on [Pivotal Network](https://network.pivotal.io/). 
+Product name, first use on page if PKS has not yet been spelled out: YugaByte DB Enterprise for Pivotal Container Service (PKS)
+
+Component products:
+
++ YugaWare (YugaByte DB management console)
++ YugaByte Service Broker for Pivotal Cloud Foundry (PCF)  or YugaByte Service Broker for PCF 
 
 ### <a id='overview'></a>Overview
 
