@@ -10,19 +10,21 @@ YugaByte service plans and bind them to their applications using either Apps Man
 Cloud Foundry Command Line Interface (cf CLI). Binding a YugaByte service instance to an application provides
 the application with information it can use to store and retrieve information in a YugaByte database.
 
-YugaByte supports Cassandra and Redis complaint API. Refer to the [YugaByte documentation] (https://docs.yugabyte.com/latest/develop/client-drivers/)
-to learn on how to use YugaByte with your existing application.
+YugaByte supports Cassandra- and Redis-compliant APIs.
+For information about using YugaByte with your existing application,
+see [Client Drivers](https://docs.yugabyte.com/latest/develop/client-drivers/) in the YugaByte documentation.
 
 ##<a id="apps-man"></a> Create and Bind a Service Instance in Apps Manager
 
-To create a YugaByte service instance and service key using Apps Manager, perform the following steps:
+To create a YugaByte service instance and service key using Apps Manager, do the following:
 
 1. Navigate to `apps.YOUR-SYSTEM-DOMAIN` in a browser and log in to Apps Manager.
 1. Click **Marketplace** in the left navigation.
 1. Click **YugaByte DB** from the displayed tiles and click to view the available plans.
 1. Click on the appropriate **Select this plan** button to select the required **YugaByte Service Plan**.
 1. In the **Instance Name** field, enter a name for this specific YugaByte service instance.
-1. Click **Show Advanced Options**. In the **Add Parameters** section, add a parameter with name of `universe_name` and set the value to match the instance name.
+1. Click **Show Advanced Options**. In the **Add Parameters** section,
+   add a parameter with name of `universe_name` and set the value to match the instance name.
 <br><%= image_tag('create-instance.png') %>
 1. Click **CREATE** to launch the YugaByte DB, you should see the confirmation as below.
 <br><%= image_tag('create-instance-success.png') %>
@@ -33,7 +35,7 @@ To create a YugaByte service instance and service key using Apps Manager, perfor
 
 ##<a id='cf-cli'></a>Create and Bind a Service Instance Using the cf CLI
 
-To create a YugaByte service instance and service key using the cf CLI, perform the following steps:
+To create a YugaByte service instance and service key using the cf CLI, do the following:
 
 1. Set your API endpoint to the Cloud Controller of your deployment.
     <pre class="terminal">
@@ -61,7 +63,8 @@ To create a YugaByte service instance and service key using the cf CLI, perform 
 
     </pre>
 
-1. List the Marketplace services and locate the YugaByte service. The service plans match the namespaces that have been configured on the YugaByte database.
+1. List the Marketplace services and locate the YugaByte service.
+   The service plans match the namespaces that have been configured on the YugaByte database.
     <pre class="terminal">
     $ cf marketplace
     Getting services from marketplace in org system / space apps-manager as admin...
@@ -85,7 +88,8 @@ To create a YugaByte service instance and service key using the cf CLI, perform 
     xsmall         Cores: 2, Memory (GB): 2, Volumes: 1 x 100     free
     </pre>
 
-1. Create an instance of the YugaByte service, specifying both the name of the service plan and the name of the service instance.
+1. Create an instance of the YugaByte service,
+   specifying both the name of the service plan and the name of the service instance.
     <pre class="terminal">
     $ cf create-service yugabyte-sb PLAN SERVICE_INSTANCE -c '{"universe_name": SERVICE_INSTANCE}'
     </pre>

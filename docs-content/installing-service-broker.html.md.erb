@@ -12,25 +12,32 @@ To install and configure the YugaByte Service Broker, do the following:
 1. Download the product file from [Pivotal Network] (https://network.pivotal.io/products/yugabyte-db/).
 
 1. Click **Import a Product** on the Ops Manager Dashboard to import the product file.
-<br><%= image_tag('import-product.png') %>
+
+    <%= image_tag('import-product.png') %>
 
 1. Click **+** next to the uploaded YugaByte Service Broker tile in the Ops Manager Available Products view to add it to your staging area.
-<br><%= image_tag('add-product.png') %>
+
+    <%= image_tag('add-product.png') %>
 
 1. Click on the YugaByte DB tile.
-<br><%= image_tag('yugabyte-tile.png') %>
+
+    <%= image_tag('yugabyte-tile.png', :width => "250") %>
 
 1. From the **Settings** tab, click **YugaByte Configuration**.
-<br><%= image_tag('yugabyte-config-tab.png') %>
+
+    <%= image_tag('yugabyte-config-tab.png', :width => "350") %>
 
 1. Complete the fields in **Custom Properties for YugaByte** with YugaByte Management console login information.
-<br><%= image_tag('yugabyte-config.png') %>
-  * **YugaByte Admin Host IP**: Enter the hostname or IP address of the YugaByte Management console.
-  * **YugaByte Admin Host Port**: The Admin host port is defaulted to 80, change it if this is different in your setup.
-  * **YugaByte Admin Host User**: Enter the YugaByte Management console username.
-  * **YugaByte Admin Host Password**: Enter the YugaByte Managment console password.
+
+    <%= image_tag('yugabyte-config.png', :width => "350") %>
+
+     * **YugaByte Admin Host IP**: Enter the hostname or IP address of the YugaByte Management console.
+     * **YugaByte Admin Host Port**: The admin host port is defaulted to 80, change it if this is different in your setup.
+     * **YugaByte Admin Host User**: Enter the YugaByte Management console username.
+     * **YugaByte Admin Host Password**: Enter the YugaByte Managment console password.
 
 1. Click **Save**.
 
-1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install the YugaByte DB Service Broker.
-<br><%= image_tag('pending-changes.png') %>
+1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install the YugaByte Service Broker.
+
+    <%= image_tag('pending-changes.png', :width => "350") %>

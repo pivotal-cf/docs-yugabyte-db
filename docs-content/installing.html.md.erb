@@ -1,15 +1,15 @@
 ---
-title: Installing and Configuring YugaByte Management console on PKS
+title: Installing and Configuring YugaByte Management Console on PKS
 owner: Partners
 ---
 
-This topic describes how to install and configure YugaByte Management console on PKS.
+This topic describes how to install and Configure YugaByte Management console on PKS.
 
 ##<a id='install'></a> Install and Configure YugaByte Management console on PKS
 
 To install the YugaByte Management Console on PKS, do the following:
 
-1. Obtain a Pull Secret for running the YugaByte Management console from [YugaByte Sales](mailto:sales@yugabyte.com).
+1. Obtain a Pull Secret for running the YugaByte Management console by emailing [YugaByte Sales](mailto:sales@yugabyte.com).
 
 1. Run the following command to install the Pull Secret.
  <pre class="terminal">
@@ -23,19 +23,25 @@ To install the YugaByte Management Console on PKS, do the following:
  $ kubectl create -f yugaware-k8s.yml
  </pre>
 
-1. After the service is up, you can access the UI. Here you will land on a registration page as below.
+1. After the service is up, you can access the UI.
+   The registration page appears first. 
 <br><%= image_tag('register.png') %>
 
-1. Fill in the Registration form and hit **Register**, please make a note of the email and password.
-<br><%= image_tag('register-filled.png') %>
+1. Fill in the registration form and click **Register**, and
+   record the email and password in a safe place.
 
-1. After registered successfully you will seen an empty dashboard asking you to Configure a provider as below.
-<br><%= image_tag('dashboard.png') %>
+    <%= image_tag('register-filled.png') %>
 
-1. Click **Configure a Provider** and navigate to Pivotal Container Service Tab.
-<br><%= image_tag('config-page.png') %>
+    After registration, you see an empty dashboard asking you to configure a provider.
+
+    <%= image_tag('dashboard.png') %>
+
+1. Click **Configure a Provider** and navigate to Pivotal Container Service tab.
+
+    <%= image_tag('config-page.png') %>
 
 1. Create a new Pivotal Container Service by providing the kube config, service account, and namespace details.
-<br><%= image_tag('config-page-filled.png') %>
+
+    <%= image_tag('config-page-filled.png') %>
 
 1. Click **Save** to save the configuration.
