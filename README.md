@@ -1,10 +1,10 @@
-## YugaByte DB Enterprise for PKS
+## YugaByte DB Enterprise for PCF
 
-Product name, first use on page if PKS has not yet been spelled out: YugaByte DB Enterprise for Pivotal Container Service (PKS)
+Product name, first use on page if PCF has not yet been spelled out: YugaByte DB Enterprise for Pivotal Cloud Foundry (PKS)
 
 Component products:
 
-+ YugaWare (YugaByte DB management console)
++ YugaWare (is a management console for YugaByte Enterprise Edition DB)
 + YugaByte Service Broker for Pivotal Cloud Foundry (PCF)  or YugaByte Service Broker for PCF 
 
 ### <a id='overview'></a>Overview
