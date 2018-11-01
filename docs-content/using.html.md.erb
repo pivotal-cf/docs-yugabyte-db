@@ -24,7 +24,9 @@ To create a YugaByte service instance and service key using Apps Manager, do the
 1. Click on the appropriate **Select this plan** button to select the required **YugaByte Service Plan**.
 1. In the **Instance Name** field, enter a name for this specific YugaByte service instance.
 1. Click **Show Advanced Options**. In the **Add Parameters** section,
-   add a parameter with name of `universe_name` and set the value to match the instance name.
+   add a parameter with name of `universe_name` and set the value to match the instance name. This would
+   launch a PKS based YugaByte universe and replication factor 3.
+   For more advanced options check [YugaByte docs](http://localhost:1313/latest/deploy/pivotal-cloud-foundry/)
 <br><%= image_tag('create-instance.png') %>
 1. Click **CREATE** to launch the YugaByte DB, you should see the confirmation as below.
 <br><%= image_tag('create-instance-success.png') %>
@@ -71,27 +73,27 @@ To create a YugaByte service instance and service key using the cf CLI, do the f
     OK
 
     service          plans                                          description
-    yugabyte-sb      large, medium, small, xlarge, xsmall           Service Broker for Managing YugaByte DB
+    yugabyte-db      x-small*, small*, medium*, large*, x-large*    Service Broker for Managing YugaByte DB
 
     TIP:  Use 'cf marketplace -s SERVICE' to view descriptions of individual plans of a given service.
     </pre>
 
 1. To view invididual plan descriptions, run:
     <pre class="terminal">
-    $ cf marketplace -s yugabyte-sb
+    $ cf marketplace -s yugabyte-db
     OK
     service plan   description                                    free or paid
-    large          Cores: 16, Memory (GB): 16, Volumes: 1 x 100   free
-    medium         Cores: 8, Memory (GB): 8, Volumes: 1 x 100     free
-    small          Cores: 4, Memory (GB): 4, Volumes: 1 x 100     free
-    xlarge         Cores: 32, Memory (GB): 32, Volumes: 1 x 100   free
-    xsmall         Cores: 2, Memory (GB): 2, Volumes: 1 x 100     free
+    x-small        Cores: 2, Memory (GB): 4                       paid
+    small          Cores: 4, Memory (GB): 7                       paid
+    medium         Cores: 8, Memory (GB): 15                      paid
+    large          Cores: 16, Memory (GB): 15                     paid
+    x-large        Cores: 32, Memory (GB): 30                     paid
     </pre>
 
 1. Create an instance of the YugaByte service,
    specifying both the name of the service plan and the name of the service instance.
     <pre class="terminal">
-    $ cf create-service yugabyte-sb PLAN SERVICE_INSTANCE -c '{"universe_name": SERVICE_INSTANCE}'
+    $ cf create-service yugabyte-db PLAN SERVICE_INSTANCE -c '{"universe_name": SERVICE_INSTANCE}'
     </pre>
 
 1. Create a service key for the YugaByte service:
