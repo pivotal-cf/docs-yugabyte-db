@@ -16,11 +16,16 @@ To install the YugaByte Management Console on PKS, do the following:
  $ kubectl create -f yugabyte-k8s-secret.yml
  </pre>
 
-1. Download YugaByte Management console k8s file from [Pivotal Network] (https://network.pivotal.io/products/yugabyte-db/).
+1. Download YugaByte Management console helm chart from [Pivotal Network] (https://network.pivotal.io/products/yugabyte-db/).
 
-1. Run the following command to get YugaByte Management console started on PKS.
+1. Run the following command to **install** YugaByte Management console started on PKS.
  <pre class="terminal">
- $ kubectl create -f yugaware-k8s.yml
+ $ helm install yb yugaware-1.0.0.tgz  --wait
+ </pre>
+
+1. Run the following command to **upgrade** YugaByte Management console. Replace the version with the **version** tag.
+ <pre class="terminal">
+ $ helm upgrade yb yugaware-1.0.0.tgz --set=image.tag=**version** --wait
  </pre>
 
 1. After the service is up, you can access the UI.
@@ -41,7 +46,16 @@ To install the YugaByte Management Console on PKS, do the following:
     <%= image_tag('config-page.png') %>
 
 1. Create a new Pivotal Container Service by providing the kube config, service account, image registry, and namespace details.
-    
+   Refer to YugaByte docs for Configuring other [Clould Providers] (https://docs.yugabyte.com/latest/deploy/enterprise-edition/configure-cloud-providers/)
+    2. Select **Pivotal Container Service** for the type fieldset.
+    2. Provide a name for the config
+    2. Upload the kubeconfig file
+    2. Fill the Service Account name that the kubeconfig uses.
+    2. Pick Region and Zone.
+    2. Image Registry (for Enterprise Edition of YugaByte override this with **quay.io/yugabyte/yugabyte**)
+    2. Upload the pull secret (used for the YugaByte Management Console)
+    2. Add Storage Classes (comma delimited string).
+
     <%= image_tag('config-page-filled.png') %>
 
 1. Click **Save** to save the configuration.
