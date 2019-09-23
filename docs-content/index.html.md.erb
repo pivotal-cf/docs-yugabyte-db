@@ -1,12 +1,12 @@
 ---
-title: YugaByte DB Enterprise for PCF
+title: YugaByte DB Enterprise for Pivotal Platform
 owner: Partners
 ---
-This documentation describes YugaByte DB Enterprise for Pivotal Cloud Foundry (PCF) which contains two components:
-YugaWare (YugaByte DB management console) in Pivotal Container Service (PKS) and the YugaByte Service Broker for PCF.
+This documentation describes YugaByte DB Enterprise for Pivotal Platform which contains two components:
+YugaWare (YugaByte DB management console) in Pivotal Container Service (PKS) and the YugaByte Service Broker for Pivotal Platform.
 YugaWare helps manage YugaByte Enterprise Edition by integrating orchestration, monitoring, and alerting all
-in one application. The documentation also describes YugaByte Service Broker for PCF.
-The YugaByte Service Broker registers a service broker on PCF and exposes its service plans on the Marketplace.
+in one application. The documentation also describes YugaByte Service Broker for Pivotal Platform.
+The YugaByte Service Broker registers a service broker on Pivotal Platform and exposes its service plans on the Marketplace.
 
 ## <a id='overview'></a>Overview
 
@@ -14,7 +14,7 @@ YugaWare is a management console for YugaByte Enterprise Edition DB. It provides
 Enterprise functions like software upgrade, backups, and alerts. Users can also use the management console to
 monitor their DB performance by viewing the metrics. The management console exposes several of these functions' APIs as well.
 
-The YugaByte Service Broker for PCF registers a service broker with PCF and exposes its service plans on the
+The YugaByte Service Broker for Pivotal Platform registers a service broker with Pivotal Platform and exposes its service plans on the
 Marketplace. Developers can then create service plan instances using Apps Manager or the Cloud Foundry Command
 Line Interface (cf CLI) to bind them to their apps. The service broker talks to the YugaWare management console via
 the API interface.
@@ -22,7 +22,7 @@ the API interface.
 
 ## <a id='features'></a>Key Features
 
-YugaByte DB Enterprise for PCF includes the following key features:
+YugaByte DB Enterprise for Pivotal Platform includes the following key features:
 
 * **High Performance ---** Over 90% better performance than Cassandra when
 handling over 10 million keys. The denser the data sets, the better YugaByte DB performs versus other
@@ -40,7 +40,7 @@ hybrid deployment.
 
 ## <a id="snapshot"></a>Product Snapshot
 
-The following table provides version and version-support information about YugaByte DB Enterprise for PCF.
+The following table provides version and version-support information about YugaByte DB Enterprise for Pivotal Platform.
 
 <table class="nice">
     <th>Element</th>
@@ -54,7 +54,7 @@ The following table provides version and version-support information about YugaB
         <td>June 27, 2019</td>
     </tr>
     <tr>
-        <td>YugaByte Service Broker for PCF version</td>
+        <td>YugaByte Service Broker for Pivotal Platform version</td>
         <td>v1.1.8</td>
     </tr>
     <tr>
@@ -84,7 +84,7 @@ The following table provides version and version-support information about YugaB
 </table>
 
 <p class="note warning"><strong> WARNING:</strong>
-YugaByte DB Enterprise for PCF v1.1.6
+YugaByte DB Enterprise for Pivotal Platform v1.1.6
 and earlier require a Ubuntu Trusty stemcell.
 The end-of-life date for Ubuntu Trusty is April 2019.
 If a security vulnerability is found on this stemcell after April, it will not be fixed.</p>
@@ -92,14 +92,14 @@ If a security vulnerability is found on this stemcell after April, it will not b
 
 ## <a id="reqs"></a>Requirements
 
-YugaByte DB Enterprise for PCF has the following requirements:
+YugaByte DB Enterprise for Pivotal Platform has the following requirements:
 
 + Pivotal Container Service (PKS) cluster with at least a **medium** plan
 
 For information about how to bring up a cluster in PKS,
 see the [Pivotal Container Service](https://docs.pivotal.io/pks/index.html) documentation.
 
-YugaByte Service Broker for PCF has the following requirements:
+YugaByte Service Broker for Pivotal Platform has the following requirements:
 
 + A YugaWare instance running with a cloud provider setup.
 
@@ -119,7 +119,7 @@ in the YugaByte documentation.
         <td>First</td>
     </tr>
     <tr>
-        <td>YugaByte Service Broker for PCF</td>
+        <td>YugaByte Service Broker for Pivotal Platform</td>
         <td>Allow applications running in PAS to bind to the service created on PKS</td>
         <td>Second</td>
     </tr>
@@ -132,4 +132,4 @@ Before deploying YugaByte DB Enterprise for PKS, you must procure a license from
 ## <a id="feedback"></a>Feedback
 
 If you have a feature request, questions, or information about a bug, please email
-[Pivotal Cloud Foundry Feedback](mailto:cf-feedback@pivotal.io) list or send an email to support@yugabyte.com.
+[Pivotal Platform Feedback](mailto:cf-feedback@pivotal.io) list or send an email to support@yugabyte.com.
