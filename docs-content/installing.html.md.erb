@@ -20,12 +20,12 @@ To install the YugaByte Management Console on PKS, do the following:
 
 1. Run the following command to **install** YugaByte Management console started on PKS.
  <pre class="terminal">
- $ helm install yb yugaware-1.0.0.tgz  --wait
+ $ helm install yb yugaware-2.0.0.tgz  --wait
  </pre>
 
 1. Run the following command to **upgrade** YugaByte Management console. Replace the version with the **version** tag.
  <pre class="terminal">
- $ helm upgrade yb yugaware-1.0.0.tgz --set=image.tag=**version** --wait
+ $ helm upgrade yb yugaware-2.0.0.tgz --set=image.tag=**version** --wait
  </pre>
 
 1. After the service is up, you can access the UI.
